@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta name="viewport" content="width=device-width">
+		<title>Prueba</title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="nuevoMov">
+			</div>
+			<!--<div id="listado">
+			</div>-->
+		</div>
+		
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/underscore.js"></script>
+		<script src="js/backbone-min.js"></script>
+		<script src="js/financiera.js"></script>
+		
+		<!-- Templates -->
+
+		<script type="text/template" id="nuevoMov-template">
+			<h1>Añadir nuevo movimiento</h1>
+			<section id="nuevoMov">
+				<input type="text" id ="descripcion" placeholder="Descripción">
+				<input type="number" id ="cantidad" placeholder="Cantidad">
+				<input type="button" id="anadir" value="Añadir">
+				<h1>Listado de movimientos</h1>
+				<table id="movList">
+					<th>Descripción</th>
+					<th>Cantidad</th>
+					<th></th>
+				</table>
+			</section>
+		</script>
+		<script type="text/template" id="item-template">
+			<td><%- descripcion %></td>
+			<td><%- cantidad %></td>
+			<td><a id="borrar">X</a></td>
+		</script>
+	</body>
+</html>
