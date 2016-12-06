@@ -53,6 +53,7 @@ $(function(){
 		},
 		
 		borraMovimiento: function(e){
+			//destroy llamará a la API con DELETE
 			this.model.destroy({url:'/api/public/delete/'+this.model.getId()});
 		}
 	});
@@ -75,6 +76,7 @@ $(function(){
 			this.listenTo(movs, 'add', this.agregarMovimiento);
 
 			//Sacamos los elementos que ya estaban guardados a través la API
+			//fetch llamará a la API con GET
 			movs.fetch({url:'/api/public/getlist'});
 
 			this.nuevoMov = $('#nuevoMov');
@@ -95,6 +97,7 @@ $(function(){
 			if (!this.$("#descripcion").val()) return;
 			if (!this.$("#cantidad").val()) return;
 			//Añadimos una nueva instancia de model dentro de movs
+			//create llamará a la API con POST
 			movs.create({descripcion: this.$("#descripcion").val(),cantidad: this.$("#cantidad").val()},{url:'/api/public/add'});
 			//Reseteamos los input
 			this.$("#descripcion").val('');
