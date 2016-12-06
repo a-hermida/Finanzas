@@ -1,7 +1,16 @@
 $(function(){
 	
-	//Collection que representa el listado de movimientos realizados
+	//Model de un movimiento
 	var Movimiento = Backbone.Model.extend({
+		getId: function() {
+            return this.get('id');
+        },
+		getDescripcion: function() {
+            return this.get('descripcion');
+        },
+		getCantidad: function() {
+            return this.get('cantidad');
+        },
 		//Conexión a la API
 		url: this.url
 	});
@@ -39,12 +48,12 @@ $(function(){
 		
 		//Al renderizarlo, se le agrega al template las variables de descripción y cantidad
 		render: function() {
-			this.$el.html(this.itemTemplate({descripcion:this.model.attributes.descripcion,cantidad:this.model.attributes.cantidad}));
+			this.$el.html(this.itemTemplate({descripcion:this.model.getDescripcion(),cantidad:this.model.getCantidad()}));
 			return this;
 		},
 		
 		borraMovimiento: function(e){
-			this.model.destroy({url:'/api/public/delete/'+this.model.id});
+			this.model.destroy({url:'/api/public/delete/'+this.model.getId()});
 		}
 	});
 

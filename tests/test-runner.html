@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Title &amp; Meta -->
+    <title>Frontend tests</title>
+    <meta charset="utf-8">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="libs/mocha/mocha.css">
+</head>
+
+<body>
+
+    <div id="mocha"></div>
+
+    <!-- Testing Libraries -->
+    <script src="libs/mocha/mocha.js"></script>
+    <script src="libs/chai/chai.js"></script>
+    <script src="libs/sinon/sinon.js"></script>
+    <script>
+        // Use the expect version of chai assertions - http://chaijs.com/api/bdd
+        var expect = chai.expect;
+
+        // Tell mocha we want TDD syntax
+        mocha.setup('tdd');
+    </script>
+
+    <!-- Libs -->
+    <script src="../libs/jquery-3.1.1.min.js"></script>
+    <script src="../libs/underscore.js"></script>
+    <script src="../libs/backbone-min.js"></script>
+
+    <!-- Source files -->
+    <script src="../src/financiera.js"></script>
+	
+    <!-- Test -->
+    <script src="financiera.test.js"></script>
+
+    <script>
+        if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+        else { mocha.run(); }
+    </script>
+
+</body>
+</html>
