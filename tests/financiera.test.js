@@ -40,35 +40,3 @@ suite('Movimiento Model', function() {
         this.mov = null;
     });
 });
-
-suite('AppView View', function() {
-	
-	this.mov = new Movimiento({
-		id: 7,
-		descripcion: "Prueba descripción",
-		cantidad: 10.5
-	});
-		
-    setup(function() {
-        this.appView = new AppView({
-            el: '#container',
-        });
-    });
-
-    teardown(function() {
-        this.appView = null;
-    });
-
-    test('should exist', function() {
-        expect(this.appView).to.be.ok;
-    });
-	
-	test('render()', function() {
-        this.profile.render();
-
-        expect(this.profile.$el.html().match(/John/)).to.be.ok;
-        expect(this.profile.$el.html().match(/Black/)).to.be.ok;
-        expect(this.profile.$el.html().match(/35/)).to.be.ok;
-    });
-
-});
